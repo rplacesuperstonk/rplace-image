@@ -18,9 +18,14 @@ mask_i = Image.open(BytesIO(response.content))
 mask = Image.new("1", (6000, 6000), 0)
 mask.paste(mask_i)
 
+placestart_url = "https://raw.githubusercontent.com/r-placestart/overlay/main/overlay.png"
+response = requests.get(placestart_url)
+placestart = Image.open(BytesIO(response.content))
+
 final_img = Image.new('RGBA', (6000, 6000))
 unmasked_img = Image.new('RGBA', (6000, 6000))
 unmasked_img.paste(img, tl)
-unmasked_img.paste(img_taskbar, tl_taskbar)
+#unmasked_img.paste(img_taskbar, tl_taskbar)
+unmasked_img.paste(placestart)
 final_img = Image.composite(final_img, unmasked_img, mask)
 final_img.save("superstonk_overlay.png")
