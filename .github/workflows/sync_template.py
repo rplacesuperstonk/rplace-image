@@ -3,7 +3,7 @@ import requests
 from io import BytesIO
 
 tl = (773 * 3, 735  * 3) # top left corner main image
-tl_taskbar = (702 * 3, 1972  * 3) # top left corner main image
+tl_taskbar = (933 * 3, 1972 * 3) # top left corner main image
 map_dim = (2000, 2000)
 
 img = Image.open("reference.png")
